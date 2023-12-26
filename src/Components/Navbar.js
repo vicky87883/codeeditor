@@ -16,7 +16,7 @@ const Navbar = ({ userLang, setUserLang, userTheme,
 	]
 	return (
 		<div className="navbar">
-			<h1>Codeavenues code compiler</h1>
+			<h1>Codeavenues compiler</h1>
 			<Select options={languages} value={userLang}
 				onChange={(e) => setUserLang(e.value)}
 				placeholder={userLang} />

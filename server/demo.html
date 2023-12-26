@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monaco Editor Demo</title>
+    <script src="https://unpkg.com/monaco-editor@0.26.1/min/vs/loader.js"></script>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; }
+        #editor { height: 100vh; }
+    </style>
+</head>
+<body>
+
+<div id="editor"></div>
+
+<script>
+    require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@0.26.1/min/vs' } });
+
+    require(['vs/editor/editor.main'], function () {
+        var editor = monaco.editor.create(document.getElementById('editor'), {
+            value: 'console.log("Hello, World!");',
+            language: 'javascript',
+            theme: 'vs-dark', // or 'vs
+            automaticLayout: true // adjust editor size automatically
+        });
+
+        // Optional: You can handle user input or retrieve the code from the editor
+        editor.onDidChangeModelContent(function () {
+            var code = editor.getValue();
+            console.log(code);
+        });
+    });
+</script>
+
+</body>
+</html>
